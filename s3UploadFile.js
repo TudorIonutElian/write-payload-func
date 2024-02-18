@@ -4,6 +4,10 @@ const path = require('path');
 
 const uploadToFirstS3 = async (generateFileContent) => {
     const s3 = new S3({
+        credentials: {
+            accessKeyId: 'AKIA5PWZ742ZHF3M3M5Q',
+            secretAccessKey: '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',
+        },
         region: 'eu-central-1',
         signatureVersion: 'v4',
       });

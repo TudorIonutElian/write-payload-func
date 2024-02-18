@@ -2,10 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const saveLocalFile = (fileContent) => {
-    if (!fs.existsSync("tmp")){
-        fs.mkdirSync("tmp");
-    }
-    fs.writeFileSync("/tmp/request.txt", fileContent);
+    const tmpDirectory = '/tmp';
+    const temporaryFilePath = `${tmpDirectory}/example.txt`;
+    fs.writeFileSync(temporaryFilePath, fileContent);
 }
 
 module.exports = {

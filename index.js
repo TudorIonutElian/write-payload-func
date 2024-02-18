@@ -20,7 +20,11 @@ exports.handler = async (event) => {
   const generatedFileContent = generateFileContent(event);
   saveLocalFile(generatedFileContent);
 
-
   await uploadToFirstS3(generatedFileContent);
+
+  const tmpDirectory = '/tmp';
+  const temporaryFilePath = `${tmpDirectory}/example.txt`;
+  fs.unlinkSync(temporaryFilePath);
+  
   return response;
 };
