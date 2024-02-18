@@ -21,10 +21,13 @@ exports.handler = async (event) => {
   saveLocalFile(generatedFileContent);
 
   await uploadToFirstS3(generatedFileContent);
+  console.log('File uploaded to S3 Bucket successfully!');
 
   const tmpDirectory = '/tmp';
   const temporaryFilePath = `${tmpDirectory}/request.txt`;
   fs.unlinkSync(temporaryFilePath);
+
+  console.log(`File deleted from ${temporaryFilePath}`);
   
   return response;
 };
