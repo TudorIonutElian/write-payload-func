@@ -8,10 +8,12 @@ const uploadToFirstS3 = async (generateFileContent) => {
         signatureVersion: 'v4',
       });
 
+    const fileName = Date.now().toString() + '.txt';
+
     const syncFileToS3 = (passThroughStream) => (new Promise((resolve, reject) => {
         const uploadParams = {
             Bucket: 'cloudwatch-mock-lambda-bucket',
-            Key: Date.now().toString() + '.txt',
+            Key: fileName,
             Body: generateFileContent.toString(),
         };
 

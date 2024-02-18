@@ -23,7 +23,7 @@ exports.handler = async (event) => {
   await uploadToFirstS3(generatedFileContent);
 
   const tmpDirectory = '/tmp';
-  const temporaryFilePath = `${tmpDirectory}/example.txt`;
+  const temporaryFilePath = `${tmpDirectory}/request.txt`;
   fs.unlinkSync(temporaryFilePath);
   
   return response;
