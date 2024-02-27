@@ -1,7 +1,6 @@
 const generateFileContent = (event) => {
     let stringToWrite = ``;
     for(let i = 0; i < 20; i++) {
-      let randomNum = Math.floor(Math.random() * 100 * i);
       stringToWrite += `requestType: ${event.requestType},`;
       stringToWrite += `requestUrl: ${event.requestUrl},`;
       stringToWrite += `request_ip: ${event.requestValues.request_ip},`;
