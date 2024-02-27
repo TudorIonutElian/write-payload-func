@@ -5,7 +5,7 @@ const path = require('path');
 const uploadToFirstS3 = async (generateFileContent) => {
     const s3 = new S3({
         region: 'eu-central-1',
-        signatureVersion: 'v4',
+        signatureVersion: 'v4'
       });
 
     const fileName = Date.now().toString() + '.txt';
