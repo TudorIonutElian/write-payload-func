@@ -6,7 +6,7 @@ const generateFileContent = (event) => {
       stringToWrite += `requestIp: ${event.requestValues.request_ip}, `;
       stringToWrite += `requestVpc: ${event.requestValues.request_vpc}, `;
       stringToWrite += `requestRegion: ${event.requestValues.request_region}, `;
-      stringToWrite += `requestAvailabilityZone: ${event.requestValues.request_availability_zone},`;
+      stringToWrite += `requestAvailabilityZone: ${event.requestValues.request_availability_zone}, `;
       stringToWrite += `requestIamRole: ${event.requestValues.request_iam_role}, `;
       stringToWrite += `requestApiKey: ${event.requestValues.request_api_key}, `;
       stringToWrite += `requestUsername: ${event.requestValues.request_username}, `;
