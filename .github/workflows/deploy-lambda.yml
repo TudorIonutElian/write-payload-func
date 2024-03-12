@@ -35,4 +35,5 @@ jobs:
             npm install
             cd ../
             zip -r write-payload-func.zip write-payload-func
+            ls -l grep | 'write-payload'
 
