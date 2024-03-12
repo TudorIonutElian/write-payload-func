@@ -36,6 +36,8 @@ jobs:
             cd write-payload-func
             npm install
             ls -la
+            zip -r write_payload_func.zip .
+            aws lambda update-function-code --function-name write-payload-func --zip-file fileb://write_payload_func.zip
             
 
             
