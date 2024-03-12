@@ -14,7 +14,7 @@ jobs:
     env: 
       RUN_NUMBER: ${{ github.run_number }}
     steps:
-      - name: Login to Vultr Instance and run terraform plan
+      - name: Login to Vultr Instance and deploy lambda
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VULTR_INSTANCE_IP }}
@@ -37,5 +37,7 @@ jobs:
             npm install
             cd ../
             zip -r write-payload-func.zip write-payload-func
+            aws lambda update-function-code --function-name write-payload-func --zip-file fileb://write-payload-func.zip
+
             
 
