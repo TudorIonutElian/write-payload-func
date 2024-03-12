@@ -7,7 +7,7 @@ on:
       - main
 jobs:
   deploy:
-    -name: Deploy Lambda Function
+    name: Deploy Lambda Function
       runs-on: ubuntu-latest
       steps:
         - name: checkout source code
