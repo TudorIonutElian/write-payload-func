@@ -6,7 +6,7 @@ on:
     branches:
       - main
 jobs:
-  deploy_zip:
+  deploy:
     name: Deploy Lambda Function
     runs-on: ubuntu-latest
     steps:
