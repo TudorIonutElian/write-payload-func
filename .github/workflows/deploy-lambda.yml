@@ -22,7 +22,7 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - name: Build binary
         run: |
-          cd write-payload-func && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -a -o main main.go && zip write-payload-func.zip main
+          cd example && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -a -o main main.go && zip write-payload-func.zip main
       - name: default deploy
         uses: appleboy/lambda-action@v0.1.9
         with:
@@ -30,7 +30,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-central-1
           function_name: write-payload-func
-          zip_file: write-payload-func.zip
+          zip_file: example/write-payload-func.zip
           memory_size: 128
           timeout: 10
           runtime: nodejs18.x
