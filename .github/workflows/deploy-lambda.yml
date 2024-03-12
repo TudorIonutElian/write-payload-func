@@ -16,21 +16,13 @@ jobs:
     steps:
       - name: checkout source code
         uses: actions/checkout@v3
-      - name: Install Go
-        uses: actions/setup-go@v1
+      - name: Setup AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          go-version: ${{ matrix.go-version }}
-      - name: Build binary
-        run: |
-          cd example && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -a -o main main.go && zip write-payload-func.zip main
-      - name: default deploy
-        uses: appleboy/lambda-action@v0.1.9
-        with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: eu-central-1
-          function_name: write-payload-func
-          zip_file: example/write-payload-func.zip
-          memory_size: 128
-          timeout: 10
-          runtime: nodejs18.x
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+    - name: Zip th Lambda Function
+      run: |
+        ls -la
