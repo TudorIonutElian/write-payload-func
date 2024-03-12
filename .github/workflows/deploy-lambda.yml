@@ -8,8 +8,8 @@ on:
 jobs:
   deploy:
     name: Deploy Lambda Function
-      runs-on: ubuntu-latest
-      steps:
+    runs-on: ubuntu-latest
+    steps:
         - name: checkout source code
           uses: actions/checkout@v3
         - name: Setup AWS CLI
